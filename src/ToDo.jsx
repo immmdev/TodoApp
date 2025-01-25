@@ -10,7 +10,20 @@ export default function ToDo() {
     const [newTodo, setNewTodo] = useState("");
 
     const addNewtask = () => {
-        const newTask = { task: newTodo, id: uuidv4(), isDone: false };
+        const trimmedTask = newTodo.trim();
+
+        if (trimmedTask === "") {
+            alert("Task cannot be empty!");
+            return;
+        }
+
+        const isDuplicate = toDoes.some(task => task.task.toLowerCase() === trimmedTask.toLowerCase());
+        if (isDuplicate) {
+            alert("Task already exists!");
+            return;
+        }
+
+        const newTask = { task: trimmedTask, id: uuidv4(), isDone: false };
         const updatedTasks = [...toDoes, newTask];
         setTodo(updatedTasks);
         localStorage.setItem('tasks', JSON.stringify(updatedTasks)); 
@@ -30,10 +43,9 @@ export default function ToDo() {
     const doneAll = () => {
         const doneAllTsk = toDoes.map(todo => ({ ...todo, isDone: true }));
         setTodo(doneAllTsk);
-        localStorage.setItem('tasks', JSON.stringify(doneAllTsk)); // Save updated tasks
+        localStorage.setItem('tasks', JSON.stringify(doneAllTsk)); 
     };
 
-    
     const isDoneTsk = (id) => {
         const isDoneMarked = toDoes.map(todo => {
             if (todo.id === id) {

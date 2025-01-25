@@ -7,6 +7,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  flex-direction: column;
 }
 
 .add-input-container {
@@ -19,6 +20,8 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
   gap: 1rem;
+  width: 100%;
+  max-width: 600px;
 }
 
 .add-input-container input {
@@ -78,6 +81,8 @@ li {
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 600px;
 }
 
 .task-container:hover {
@@ -154,16 +159,19 @@ input:focus {
   .add-input-container {
     flex-direction: column;
     gap: 1.5rem;
+    width: 100%;
   }
 
   .add-btn {
     width: 100%;
+    font-size: 0.9rem;
   }
 
   .task-container {
     flex-direction: column;
     align-items: flex-start;
     gap: 1rem;
+    width: 100%;
   }
 
   .operation-btn {
@@ -175,36 +183,25 @@ input:focus {
 
   .operation-btn button {
     width: 100%;
+    font-size: 0.9rem;
   }
 
   .upperCaseAll {
     width: 100%;
+    font-size: 0.9rem;
   }
-}
 
-.done,
-.allDone {
-  background-color: #4caf50;
-  color: white;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-}
+  h1 {
+    font-size: 28px;
+  }
 
-.done:hover,
-.allDone:hover {
-  background-color: #45a049;
-}
+  .task-container div:first-child {
+    font-size: 0.9rem;
+  }
 
-h1 {
-  font-family: 'Arial', sans-serif;
-  font-size: 36px;
-  font-weight: bold;
-  color: #4CAF50;
-  text-align: center;
-  margin-top: 20px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  .done,
+  .allDone {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+  }
 }
